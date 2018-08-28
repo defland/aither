@@ -93,7 +93,7 @@ public:
         consensus.BIP34Height = 0; // FIX
         consensus.BIP34Hash = uint256S("0x000001c52d16f26c9dc9610946ef7a5fdb71613ae062162b8e68828ef6416e1f"); // FIX
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 60 * 60; // Aither: 1 hour, 24 blocks
+        consensus.nPowTargetTimespan = 30 * 60; // Aither: 1/2 hour, 24 blocks
         consensus.nPowTargetSpacing = 2.5 * 60; // Aither: 150 seconds
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -117,10 +117,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00"); // 4131
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); // 4131
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00"); // 4131
+        consensus.defaultAssumeValid = uint256S("0x000000095f3a19abffd1f79b765d384a5f88ee24217ccd0a14f9b56005554adb"); // 4131
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -242,7 +242,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 50; // 50% of 100
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00"); // 1131
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); // 1131
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00"); // 1131
@@ -255,7 +255,7 @@ public:
         nDefaultPort = 5555;
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nDelayGetHeadersTime = 24 * 60 * 60;
-        nPruneAfterHeight = 1000;
+        nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1535459641, 1289778, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
